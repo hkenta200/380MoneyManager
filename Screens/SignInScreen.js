@@ -4,6 +4,7 @@ import {
   View,
   Text,
   TouchableOpacity,
+  Button,
   Dimensions,
   StyleSheet,
   StatusBar,
@@ -114,6 +115,12 @@ const SignInScreen = ({ navigation }) => {
             }
           </TouchableOpacity>
         </View>
+
+        <TouchableOpacity onPress={() => navigation.navigate("ResetPassword")}>
+          <Text style={[styles.button_label, {color: '#6495ed'}]}>Forgot Password?</Text>
+        </TouchableOpacity>
+
+
         <View style={styles.button}>
           <LinearGradient
             colors={['#08d4c4', '#01ab9d']}
@@ -123,7 +130,7 @@ const SignInScreen = ({ navigation }) => {
           </LinearGradient>
         </View>
 
-        <TouchableOpacity 
+        <TouchableOpacity
           onPress={() => navigation.navigate("SignUpScreen")}
           style={[styles.signIn, {
             borderColor: '#009387',

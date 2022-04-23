@@ -4,6 +4,7 @@ import {
     View,
     Text,
     TouchableOpacity,
+    Button,
     Dimensions,
     StyleSheet,
     StatusBar,
