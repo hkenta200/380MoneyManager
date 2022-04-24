@@ -17,6 +17,9 @@ import Feather from 'react-native-vector-icons/Feather';
 import LinearGradient from 'react-native-linear-gradient';
 import { NavigationContainer } from '@react-navigation/native';
 
+//Status bar color fix: https://www.youtube.com/watch?v=Rs72pRwXIzA 23:32
+//Firebase Stuff: https://www.youtube.com/watch?v=J7pkSP18Oko
+
 const SignInScreen = ({ navigation }) => {
 
   const [data, setData] = React.useState({
@@ -117,18 +120,21 @@ const SignInScreen = ({ navigation }) => {
         </View>
 
         <TouchableOpacity onPress={() => navigation.navigate("ResetPassword")}>
-          <Text style={[styles.button_label, {color: '#6495ed'}]}>Forgot Password?</Text>
+          <Text style={[styles.button_label, { color: '#6495ed' }]}>Forgot Password?</Text>
         </TouchableOpacity>
 
-
-        <View style={styles.button}>
-          <LinearGradient
-            colors={['#08d4c4', '#01ab9d']}
-            style={styles.signIn}
-          >
-            <Text style={[styles.textSign, { color: '#ffff' }]}>Sign In</Text>
-          </LinearGradient>
-        </View>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("SplashScreen")}
+        >
+          <View style={styles.button}>
+            <LinearGradient
+              colors={['#08d4c4', '#01ab9d']}
+              style={styles.signIn}
+            >
+              <Text style={[styles.textSign, { color: '#ffff' }]}>Sign In</Text>
+            </LinearGradient>
+          </View>
+        </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => navigation.navigate("SignUpScreen")}
