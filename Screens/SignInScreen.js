@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import {
   View,
@@ -16,9 +16,10 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'; //https://githu
 import Feather from 'react-native-vector-icons/Feather';
 import LinearGradient from 'react-native-linear-gradient';
 import { NavigationContainer } from '@react-navigation/native';
+import { AuthContext } from '../Navigation/AuthProvider';
 
 //Status bar color fix: https://www.youtube.com/watch?v=Rs72pRwXIzA 23:32
-//Firebase Stuff: https://www.youtube.com/watch?v=J7pkSP18Oko
+//Login stuff: https://www.youtube.com/watch?v=Rs72pRwXIzA 13:00
 
 const SignInScreen = ({ navigation }) => {
 
@@ -59,6 +60,8 @@ const SignInScreen = ({ navigation }) => {
       secureTextEntry: !data.secureTextEntry
     })
   }
+
+  const {login} = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
@@ -124,7 +127,7 @@ const SignInScreen = ({ navigation }) => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => navigation.navigate("SplashScreen")}
+          onPress={() => {login(data.email, data.password)}}
         >
           <View style={styles.button}>
             <LinearGradient

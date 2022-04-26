@@ -1,5 +1,5 @@
 //import React from 'react';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import {
   View,
@@ -18,7 +18,7 @@ import RootStackScreen from './Navigation/RootStackScreen';
 
 //import React, { useState, useEffect } from 'react';
 import auth from '@react-native-firebase/auth';
-import { AuthContext } from './Navigation/AuthProvider';
+import { AuthContext, AuthProvider } from './Navigation/AuthProvider';
 
 const App = () => {
 
@@ -38,9 +38,11 @@ const App = () => {
   if (initializing) return null;
 
   return (
+    <AuthProvider>
     <NavigationContainer>
       <RootStackScreen />
     </NavigationContainer>
+    </AuthProvider>
   )
 };
 
