@@ -25,9 +25,9 @@ import { AuthContext } from '../Navigation/AuthProvider';
 //Status bar color fix: https://www.youtube.com/watch?v=Rs72pRwXIzA 23:32
 //Firebase Stuff: https://www.youtube.com/watch?v=J7pkSP18Oko
 
-const SignUpScreen = ({ navigation }) => {
+const SignInScreen = ({ navigation }) => {
 
-  const [data, setData] = useState({
+  const [data, setData] = React.useState({
     email: '',
     password: '',
     check_TextInputChange: false,
@@ -132,7 +132,7 @@ const SignUpScreen = ({ navigation }) => {
 
 
         <TouchableOpacity
-          onPress={() => register(data.email, data.password)}
+          onPress={() => register(email, password)}
           style={[styles.signIn, {
             borderColor: '#009387',
             borderWidth: 1,
@@ -150,7 +150,7 @@ const SignUpScreen = ({ navigation }) => {
   )
 }
 
-export default SignUpScreen;
+export default SignInScreen;
 
 const styles = StyleSheet.create({
   container: {

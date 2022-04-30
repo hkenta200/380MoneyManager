@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import {
   View,
@@ -16,10 +16,12 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'; //https://githu
 import Feather from 'react-native-vector-icons/Feather';
 import LinearGradient from 'react-native-linear-gradient';
 import { NavigationContainer } from '@react-navigation/native';
-import { AuthContext } from '../Navigation/AuthProvider';
+
+import HomeScreen from '../Screens/Home';
+import RootStackScreen from '../Navigation/RootStackScreen';
 
 //Status bar color fix: https://www.youtube.com/watch?v=Rs72pRwXIzA 23:32
-//Login stuff: https://www.youtube.com/watch?v=Rs72pRwXIzA 13:00
+//Firebase Stuff: https://www.youtube.com/watch?v=J7pkSP18Oko
 
 const SignInScreen = ({ navigation }) => {
 
@@ -60,8 +62,6 @@ const SignInScreen = ({ navigation }) => {
       secureTextEntry: !data.secureTextEntry
     })
   }
-
-  const {login} = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
@@ -127,11 +127,11 @@ const SignInScreen = ({ navigation }) => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => {login(data.email, data.password)}}
+          onPress={() => navigation.navigate("Home")}
         >
           <View style={styles.button}>
             <LinearGradient
-              colors={['#08d4c4', '#01ab9d']}
+              colors={['#8800C7', '#8800C7']}
               style={styles.signIn}
             >
               <Text style={[styles.textSign, { color: '#ffff' }]}>Sign In</Text>
@@ -159,7 +159,7 @@ export default SignInScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#009387'
+    backgroundColor: '#8800C7'
   },
   header: {
     flex: 1,

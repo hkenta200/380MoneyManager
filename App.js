@@ -15,6 +15,8 @@ import { NavigationContainer } from '@react-navigation/native'; //https://reactn
 
 import RootStackScreen from './Navigation/RootStackScreen';
 
+//https://stackoverflow.com/questions/2452226/master-branch-and-origin-master-have-diverged-how-to-undiverge-branches
+
 
 //import React, { useState, useEffect } from 'react';
 import auth from '@react-native-firebase/auth';
@@ -36,6 +38,14 @@ const App = () => {
   }, []);
 
   if (initializing) return null;
+
+  /* if (!user) {
+    return (
+      <View>
+        <Text>Login</Text>
+      </View>
+    );
+  } */
 
   return (
     <AuthProvider>
