@@ -1,4 +1,3 @@
-//import React from 'react';
 import React, { useState, useEffect, useContext } from 'react';
 
 import {
@@ -17,6 +16,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'; //https://githu
 import Feather from 'react-native-vector-icons/Feather';
 import LinearGradient from 'react-native-linear-gradient';
 import { NavigationContainer } from '@react-navigation/native';
+import { Picker } from '@react-native-picker/picker';
 
 
 //import { useContext } from 'react/cjs/react.production.min';
@@ -30,6 +30,8 @@ const SignInScreen = ({ navigation }) => {
   const [data, setData] = React.useState({
     email: '',
     password: '',
+    age: age,
+    AccountType: selectedAccountType,
     check_TextInputChange: false,
     secureTextEntry: true
   });
@@ -65,13 +67,23 @@ const SignInScreen = ({ navigation }) => {
     })
   }
 
-  const {register} = useContext(AuthContext);
+  /* const updatePicker = () => {
+    setData({
+      ...data,
+
+    })
+  } */
+
+  const [selectedAccountType, setselectedAccountType] = useState();
+  const [age, setAge] = useState();
+
+  const { register } = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
+      {/* <View style={styles.header}>
         <Text style={styles.text_header}>Register!</Text>
-      </View>
+      </View> */}
       <View style={styles.footer}>
         <Text style={styles.text_footer}>Email</Text>
         <View style={styles.action}>
@@ -126,24 +138,57 @@ const SignInScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity onPress={() => navigation.navigate("ResetPassword")}>
-          <Text style={[styles.button_label, {color: '#6495ed'}]}>Forgot Password?</Text>
-        </TouchableOpacity>
+        <Text style={{
+          paddingVertical: 30
+        }}>
+          <Text style={[styles.text_footer, { marginTop: 50 }]}>What is your age?</Text>
 
+        </Text>
+        <Picker //Drop down menu for their age
+          //style={{ width: '100%' }}
+          selectedValue={age}
+          onValueChange={(itemValue, itemIndex) =>
+            setAge(itemValue)
+          }>
+          <Picker.Item label="13" value="Picker.Item.label" />
+          <Picker.Item label="14" value="Picker.Item.label" />
+          <Picker.Item label="15" value="Picker.Item.label" />
+          <Picker.Item label="16" value="Picker.Item.label" />
+          <Picker.Item label="17" value="Picker.Item.label" />
+          <Picker.Item label="18" value="Picker.Item.label" />
+          <Picker.Item label="19" value="Picker.Item.label" />
+          <Picker.Item label="20" value="Picker.Item.label" />
+        </Picker>
+
+
+        <Text style={{
+          paddingVertical: 30
+        }}>
+          <Text style={[styles.text_footer, { marginVertical: 50 }]}>Are you a child or parent?</Text>
+        </Text>
+        <Picker //Drop down menu and ask if their child or parent
+          //style={{ width: '100%' }}
+          selectedValue={selectedAccountType}
+          onValueChange={(itemValue, itemIndex) =>
+            setselectedAccountType(itemValue)
+          }>
+          <Picker.Item label="Child" value="Child" />
+          <Picker.Item label="Parent" value="Parent" />
+        </Picker>
 
         <TouchableOpacity
           onPress={() => register(data.email, data.password)}
           style={[styles.signIn, {
             borderColor: '#009387',
             borderWidth: 1,
-            marginTop: 10
+            marginTop: 50
           }]}
         >
           <Text style={styles.textSign}>Sign Up</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => navigation.navigate("SignInScreen")}>
-          <Text style={styles.forgotPasswordButton}>Have an Account? Sign In</Text>
+          <Text style={styles.forgotPasswordButton}>Have an account already? Sign In</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -164,7 +209,7 @@ const styles = StyleSheet.create({
     paddingBottom: 50
   },
   footer: {
-    flex: 5,
+    flex: 10,
     backgroundColor: '#fff',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,

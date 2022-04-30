@@ -17,6 +17,8 @@ import org.reactnative.maskedview.RNCMaskedViewPackage;
 import io.invertase.firebase.app.ReactNativeFirebaseAppPackage;
 // @react-native-firebase/auth
 import io.invertase.firebase.auth.ReactNativeFirebaseAuthPackage;
+// @react-native-picker/picker
+import com.reactnativecommunity.picker.RNCPickerPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.RNGestureHandlerPackage;
 // react-native-linear-gradient
@@ -79,6 +81,7 @@ public class PackageList {
       new RNCMaskedViewPackage(),
       new ReactNativeFirebaseAppPackage(),
       new ReactNativeFirebaseAuthPackage(),
+      new RNCPickerPackage(),
       new RNGestureHandlerPackage(),
       new LinearGradientPackage(),
       new ReanimatedPackage(),

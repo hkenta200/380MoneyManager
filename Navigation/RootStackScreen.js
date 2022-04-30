@@ -18,7 +18,7 @@ import IncomePage from '../Screens/IncomePage';
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack"; //Need nativestack, not just stack
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'; //npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view and //npm install @react-navigation/bottom-tabs 
 
 import { Image } from 'react-native';
 
