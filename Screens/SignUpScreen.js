@@ -132,7 +132,7 @@ const SignInScreen = ({ navigation }) => {
 
 
         <TouchableOpacity
-          onPress={() => register(email, password)}
+          onPress={() => register(data.email, data.password)}
           style={[styles.signIn, {
             borderColor: '#009387',
             borderWidth: 1,

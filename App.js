@@ -21,6 +21,7 @@ import RootStackScreen from './Navigation/RootStackScreen';
 //import React, { useState, useEffect } from 'react';
 import auth from '@react-native-firebase/auth';
 import { AuthContext, AuthProvider } from './Navigation/AuthProvider';
+import SignInScreen from './Screens/SignInScreen';
 
 const App = () => {
 
@@ -39,19 +40,22 @@ const App = () => {
 
   if (initializing) return null;
 
-  /* if (!user) {
+  if (!user) {
     return (
-      <View>
-        <Text>Login</Text>
-      </View>
+      <AuthProvider>
+        <NavigationContainer>
+          <SignInScreen />
+        </NavigationContainer>
+      </AuthProvider>
     );
-  } */
+  }
 
   return (
     <AuthProvider>
-    <NavigationContainer>
-      <RootStackScreen />
-    </NavigationContainer>
+      <NavigationContainer>
+        <Text>Welcome {auth().currentUser?.email}</Text>
+        <RootStackScreen />
+      </NavigationContainer>
     </AuthProvider>
   )
 };

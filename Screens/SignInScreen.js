@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useContext, useState} from 'react';
 
 import {
   View,
@@ -16,9 +16,9 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'; //https://githu
 import Feather from 'react-native-vector-icons/Feather';
 import LinearGradient from 'react-native-linear-gradient';
 import { NavigationContainer } from '@react-navigation/native';
+import auth from '@react-native-firebase/auth';
 
-import HomeScreen from '../Screens/Home';
-import RootStackScreen from '../Navigation/RootStackScreen';
+import { AuthContext } from '../Navigation/AuthProvider';
 
 //Status bar color fix: https://www.youtube.com/watch?v=Rs72pRwXIzA 23:32
 //Firebase Stuff: https://www.youtube.com/watch?v=J7pkSP18Oko
@@ -61,6 +61,24 @@ const SignInScreen = ({ navigation }) => {
       ...data,
       secureTextEntry: !data.secureTextEntry
     })
+  }
+
+  const {login} = useContext(AuthContext);
+
+  useEffect(() => {
+    const unsubscribe = auth().onAuthStateChanged(user => {
+      if(user){
+        navigation.navigate("Home");
+      }
+    });
+    return unsubscribe; // unsubscribe on unmount
+  }, []);
+
+  const handleLogin = () => {
+    auth().signInWithEmailAndPassword(data.email, data.password)
+          .then(userCredentials => {
+            user = userCredentials.user;
+          })
   }
 
   return (
@@ -127,7 +145,9 @@ const SignInScreen = ({ navigation }) => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => navigation.navigate("Home")}
+          //onPress={handleLogin}
+          onPress={() => login(data.email, data.password)}
+          //onPress={() => navigation.navigate("Home")}
         >
           <View style={styles.button}>
             <LinearGradient
