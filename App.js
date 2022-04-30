@@ -21,7 +21,7 @@ import RootStackScreen from './Navigation/RootStackScreen';
 //import React, { useState, useEffect } from 'react';
 import auth from '@react-native-firebase/auth';
 import { AuthContext, AuthProvider } from './Navigation/AuthProvider';
-import SignInScreen from './Screens/SignInScreen';
+import AuthStack from './Navigation/AuthStack';
 
 const App = () => {
 
@@ -44,7 +44,7 @@ const App = () => {
     return (
       <AuthProvider>
         <NavigationContainer>
-          <SignInScreen />
+          <AuthStack/>
         </NavigationContainer>
       </AuthProvider>
     );

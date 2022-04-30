@@ -65,21 +65,21 @@ const SignInScreen = ({ navigation }) => {
 
   const {login} = useContext(AuthContext);
 
-  useEffect(() => {
+  /* useEffect(() => {
     const unsubscribe = auth().onAuthStateChanged(user => {
       if(user){
         navigation.navigate("Home");
       }
     });
     return unsubscribe; // unsubscribe on unmount
-  }, []);
+  }, []); */
 
-  const handleLogin = () => {
+  /* const handleLogin = () => {
     auth().signInWithEmailAndPassword(data.email, data.password)
           .then(userCredentials => {
             user = userCredentials.user;
           })
-  }
+  } */
 
   return (
     <View style={styles.container}>

@@ -8,6 +8,7 @@ import { TouchableWithoutFeedback } from 'react-native';
 //import { TouchableOpacity } from "react-native-gesture-handler";
 import { TouchableOpacity } from "react-native";
 import { AuthContext } from '../Navigation/AuthProvider';
+import auth from '@react-native-firebase/auth';
 
 const Home = ({ navigation }) => {
 
@@ -28,9 +29,9 @@ const Home = ({ navigation }) => {
                 <Text>
                     <Text
                         title="Hi Address"
-                        style={{ color: "#FFFFFF", fontSize: 40, fontWeight: "bold", marginLeft: 10, marginTop: 7 }}
+                        style={{ color: "#FFFFFF", fontSize: 20, fontWeight: "bold", marginLeft: 10, marginTop: 7 }}
                     >
-                        Hi, Ryan! {/* {AuthContext.user?.email} */}
+                        Hi, {auth().currentUser?.email} 
                     </Text>
                     <TouchableOpacity onPress={() => logout()}>
                         <Text>Sign out</Text>

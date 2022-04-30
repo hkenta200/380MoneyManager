@@ -1,5 +1,5 @@
 import React from 'react';
-//test comment
+
 import SplashScreen from '../Screens/SplashScreen';
 import SignInScreen from '../Screens/SignInScreen';
 import ResetPassword from '../Screens/ResetPassword';
@@ -117,10 +117,10 @@ const RootStack = createNativeStackNavigator();
 const RootStackScreen = () => {
     return (
         <RootStack.Navigator>
-            <RootStack.Screen name="SplashScreen" component={SplashScreen} options={{headerShown:false}}/>
+            {/* <RootStack.Screen name="SplashScreen" component={SplashScreen} options={{headerShown:false}}/>
             <RootStack.Screen name="SignInScreen" component={SignInScreen} />
             <RootStack.Screen name="ResetPassword" component={ResetPassword} />
-            <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
+            <RootStack.Screen name="SignUpScreen" component={SignUpScreen} /> */}
             <RootStack.Screen name="Home" component={Tabbing} options={{headerShown:false}}/>
             <RootStack.Screen name="IncomePage" component={IncomePage} />
             <RootStack.Screen name="SpendingPage" component={SpendingPage} />
