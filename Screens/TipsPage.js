@@ -23,7 +23,17 @@ const Tips = () => {
             >
                 <Text
                     style={{fontSize: 25, color: "white"}}
-                >Why Save?</Text>
+                >Why Save? {"\n"} {"\n"}
+                
+                <Text
+                    style={{fontSize: 17, color: "white", fontFamily : 'Roboto'}}
+                >
+                    Looking to get the latest Phone? Or how about saving for college? 
+                    Saving is an important strategy for wealth building and is the key to getting 
+                    what you want.  The earlier you start, the better!
+                </Text>
+
+                </Text>
             </View>
 
             <View

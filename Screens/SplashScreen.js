@@ -16,12 +16,26 @@ import LinearGradient from 'react-native-linear-gradient'; //npm install react-n
 const SplashScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.navigate('SignInScreen')}>
+
+            <Image
+                style={{height:100, width:100, tintColor: "white", alignSelf: 'center', marginTop: 250, marginBottom: 20}}
+                source={{uri: 'https://www.serrureoutaouais.ca/wp-content/uploads/2020/07/maple.png'}}
+            />
+
+            <Text
+                style={{color: "white", fontSize : 30, alignSelf: 'center', marginBottom : 50}}
+            >
+                Maple Money Manager
+            </Text>
+
+            <TouchableOpacity onPress={() => navigation.navigate('SignInScreen')}
+                style={{alignSelf: 'center'}}
+            >
                 <LinearGradient
-                    colors={['#4c00ac', '#ca8dfd']}
+                    colors={['#4c00ac', '#4c00ac']}
                     style={styles.signIn}
                 >
-                    <Text style={styles.textSign}>Login</Text>
+                    <Text style={styles.textSign}>Start</Text>
 
                 </LinearGradient>
             </TouchableOpacity>
