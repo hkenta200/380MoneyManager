@@ -212,16 +212,17 @@ const SignInScreen = ({ navigation }) => {
           onPress={() => {
             register(data.email, data.password);
             firestore()
-            .collection('userInfo')
-            .doc(auth().currentUser?.email)
-            .set({
-              name: null,
-              age: null,
-              AccountType: null,
-            })
-            .then(() => {
-              console.log('User added!');
-            });}
+              .collection('userInfo')
+              .doc("asdasdasdasda")
+              .set({
+                name: data.name,
+                age: data.age,
+                AccountType: data.selectedAccountType,
+              })
+              .then(() => {
+                console.log('User added!');
+              });
+          }
           }
           style={[styles.signIn, {
             borderColor: '#009387',

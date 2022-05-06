@@ -1,59 +1,87 @@
-import React from "react";
-import {View, Button, Text, TextInput} from 'react-native';
+import React, { useState } from "react";
+import { View, Button, Text, TextInput } from 'react-native';
 
-const AddSaving = () => {
+import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+
+const AddSaving = ({ navigation }) => {
+
+    const [savingName, setSavingName] = useState();
+    const [savingAmt, setSavingAmt] = useState();
+    const [savingCategory, setSavingCategory] = useState();
+    const [additionalInfo, setAdditionalInfo] = useState(null);
+
     return (
-        <View style = {{flex : 1, justifyContent: "center", alignContent: "center", backgroundColor : "white", marginBottom: 40}}>
-            
+
+        <View style={{ flex: 1, justifyContent: "center", alignContent: "center", backgroundColor: "white", marginBottom: 40 }}>
+
             <View
-                style = {{alignSelf: "center", fontSize : 40, marginBottom : 50, backgroundColor: "#8800C7", width : 400, height : 130, alignItems: "center", borderBottomEndRadius: 25, borderBottomLeftRadius: 25}}
+                style={{ alignSelf: "center", fontSize: 40, marginBottom: 50, backgroundColor: "#8800C7", width: 400, height: 130, alignItems: "center", borderBottomEndRadius: 25, borderBottomLeftRadius: 25 }}
             >
-            <Text
-                style = {{alignSelf: "center", fontSize : 40, color : "white", marginTop: 30}}
-            >Add New Saving</Text> 
+                <Text
+                    style={{ alignSelf: "center", fontSize: 40, color: "white", marginTop: 30 }}
+                >Add New Saving</Text>
             </View>
 
 
             <Text
-                style={{fontSize: 20, fontWeight: "bold", color: "#8800C7", left: 5}}
+                style={{ fontSize: 20, fontWeight: "bold", color: "#8800C7", left: 5 }}
             >Add Saving Name</Text>
             <TextInput
-                style = {{marginBottom : 40}}
+                style={{ marginBottom: 40 }}
                 value={Text}
+                onChangeText={text=>setSavingName(text)}
                 placeholder="Enter Name"
             />
 
             <Text
-                style={{fontSize: 20, fontWeight: "bold", color: "#8800C7", left: 5}}
+                style={{ fontSize: 20, fontWeight: "bold", color: "#8800C7", left: 5 }}
             >Saving Amount</Text>
             <TextInput
-                style = {{marginBottom : 40}}
+                style={{ marginBottom: 40 }}
                 value={Text}
+                onChangeText={text=>setSavingAmt(text)}
                 placeholder="Enter Amount"
             />
 
             <Text
-                style={{fontSize: 20, fontWeight: "bold", color: "#8800C7", left: 5}}
+                style={{ fontSize: 20, fontWeight: "bold", color: "#8800C7", left: 5 }}
             >Saving Category</Text>
             <TextInput
-                style = {{marginBottom : 40}}
+                style={{ marginBottom: 40 }}
                 value={Text}
+                onChangeText={text=>setSavingCategory(text)}
                 placeholder="Select Category"
             />
 
             <Text
-                style={{fontSize: 20, fontWeight: "bold", color: "#8800C7", left: 5}}
+                style={{ fontSize: 20, fontWeight: "bold", color: "#8800C7", left: 5 }}
             >Other Info</Text>
             <TextInput
-                style = {{marginBottom : 40}}
+                style={{ marginBottom: 40 }}
                 value={Text}
+                onChangeText={text=>setAdditionalInfo(text)}
                 placeholder="Add Info"
             />
 
             <Button
-                title = "add"
+                title="add"
                 color={"#8800C7"}
-                style = {{innerWidth: 100, innerHeight: 50, marginBottom : 10}}
+                style={{ innerWidth: 100, innerHeight: 50, marginBottom: 10 }}
+                onPress={() => {
+                    firestore()
+                        .collection('savingInfo')
+                        .doc("asdasdasdasda")
+                        .set({
+                            name: savingName,
+                            amount: savingAmt,
+                            category: savingCategory,
+                            info: additionalInfo,
+                        })
+                        .then(() => {
+                            console.log('Saving added!');
+                        });
+                }}
             >
                 <Text>Add</Text>
             </Button>
