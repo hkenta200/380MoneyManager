@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import {View, Button, Text, TextInput, onChangeText} from 'react-native';
 
-const AddSpending = () => {
+import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+
+const AddSpending = ({ navigation }) => {
+
+    const [expenseName, setExpenseName] = useState();
+    const [expenseAmt, setExpenseAmt] = useState();
+    const [expenseCategory, setExpenseCategory] = useState();
+    const [expenseAdditionalInfo, setExpenseAdditionalInfo] = useState(null);
+
     return (
         <View style = {{flex : 1, justifyContent: "center", alignContent: "center", backgroundColor : "white", marginBottom: 40}}>
             
@@ -20,6 +29,7 @@ const AddSpending = () => {
             <TextInput
                 style = {{marginBottom : 40}}
                 value={Text}
+                onChangeText={text=>setExpenseName(text)}
                 placeholder="Enter Name"
             />
 
@@ -29,6 +39,7 @@ const AddSpending = () => {
             <TextInput
                 style = {{marginBottom : 40}}
                 value={Text}
+                onChangeText={text=>setExpenseAmt(text)}
                 placeholder="Enter Amount"
             />
 
@@ -38,6 +49,7 @@ const AddSpending = () => {
             <TextInput
                 style = {{marginBottom : 40}}
                 value={Text}
+                onChangeText={text=>setExpenseCategory(text)}
                 placeholder="Select Category"
             />
 
@@ -47,6 +59,7 @@ const AddSpending = () => {
             <TextInput
                 style = {{marginBottom : 40}}
                 value={Text}
+                onChangeText={text=>setExpenseAdditionalInfo(text)}
                 placeholder="Add Info"
             />
 
@@ -54,6 +67,20 @@ const AddSpending = () => {
                 title = "add"
                 color={"#8800C7"}
                 style = {{innerWidth: 100, innerHeight: 50, marginBottom : 10}}
+                onPress={() => {
+                    firestore()
+                        .collection('expenseInfo')
+                        .doc("d")
+                        .set({
+                            name: expenseName,
+                            amount: expenseAmt,
+                            category: expenseCategory,
+                            info: expenseAdditionalInfo,
+                        })
+                        .then(() => {
+                            console.log('Expense added!');
+                        });
+                }}
             >
                 <Text>Add</Text>
             </Button>

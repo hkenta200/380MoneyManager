@@ -9,7 +9,7 @@ const AddSaving = ({ navigation }) => {
     const [savingName, setSavingName] = useState();
     const [savingAmt, setSavingAmt] = useState();
     const [savingCategory, setSavingCategory] = useState();
-    const [additionalInfo, setAdditionalInfo] = useState(null);
+    const [savingAdditionalInfo, setSavingAdditionalInfo] = useState(null);
 
     return (
 
@@ -60,7 +60,7 @@ const AddSaving = ({ navigation }) => {
             <TextInput
                 style={{ marginBottom: 40 }}
                 value={Text}
-                onChangeText={text=>setAdditionalInfo(text)}
+                onChangeText={text=>setSavingAdditionalInfo(text)}
                 placeholder="Add Info"
             />
 
@@ -76,7 +76,7 @@ const AddSaving = ({ navigation }) => {
                             name: savingName,
                             amount: savingAmt,
                             category: savingCategory,
-                            info: additionalInfo,
+                            info: savingAdditionalInfo,
                         })
                         .then(() => {
                             console.log('Saving added!');
