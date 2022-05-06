@@ -5,15 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de7e8e7e-595a-4871-b639-125e3a989adb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Navigation/AuthProvider.js" beforeDir="false" afterPath="$PROJECT_DIR$/Navigation/AuthProvider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Screens/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Screens/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/SignInScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/AddExpense.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/AddExpense.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/AddSaving.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/AddSaving.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Screens/SignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/SignUpScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/7.3.3/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.3.3/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/7.3.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.3.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/7.3.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.3.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/7.3.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.3.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-gradle-plugin/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-gradle-plugin/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-gradle-plugin/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-gradle-plugin/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-gradle-plugin/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-gradle-plugin/.gradle/file-system.probe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

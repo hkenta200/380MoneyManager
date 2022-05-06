@@ -79,6 +79,7 @@ const AddSpending = ({ navigation }) => {
                         })
                         .then(() => {
                             console.log('Expense added!');
+                            alert('Expense added!');
                         });
                 }}
             >

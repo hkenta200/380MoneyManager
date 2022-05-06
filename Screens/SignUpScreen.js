@@ -32,12 +32,16 @@ const SignInScreen = ({ navigation }) => {
   const [data, setData] = React.useState({
     email: '',
     password: '',
-    name: name,
-    age: age,
-    AccountType: selectedAccountType,
+    name: '',
+    age: '',
+    AccountType: '',
     check_TextInputChange: false,
     secureTextEntry: true
   });
+
+  /* const [name, setName] = useState();
+  const [selectedAccountType, setselectedAccountType] = useState();
+  const [age, setAge] = useState(); */
 
   const textInputChange = (val) => {
     if (val.length != 0) {
@@ -77,6 +81,20 @@ const SignInScreen = ({ navigation }) => {
     });
   }
 
+  const HandleAgeChange = (val) => {
+    setData({
+      ...data,
+      age: val
+    });
+  }
+  const HandleAccountTypeChange = (val) => {
+    setData({
+      ...data,
+      AccountType: val
+    });
+  }
+
+
   /* firestore()
     .collection('userInfo')
     .doc(auth().currentUser?.email)
@@ -88,10 +106,6 @@ const SignInScreen = ({ navigation }) => {
     .then(() => {
       console.log('User added!');
     }); */
-
-  const [name, setName] = useState();
-  const [selectedAccountType, setselectedAccountType] = useState();
-  const [age, setAge] = useState();
 
   const { register } = useContext(AuthContext);
 
@@ -160,7 +174,7 @@ const SignInScreen = ({ navigation }) => {
             placeholder='Your First Name'
             style={styles.textInput}
             autoCapitalize='none'
-            onChangeText={(val) => setName(val)}
+            onChangeText={(val) => HandleNameChange(val)}
           />
         </View>
 
@@ -171,10 +185,9 @@ const SignInScreen = ({ navigation }) => {
 
         </Text>
         <Picker //Drop down menu for their age                  //https://www.youtube.com/watch?v=dAB_-mDR-Rs Maybe so that i dont have to add age manually
-          //style={{ width: '100%' }}
-          selectedValue={age}
-          onValueChange={(itemValue, itemIndex) =>
-            setAge(itemValue)
+          selectedValue={data.age}
+          onValueChange={(itemValue) =>
+            HandleAgeChange(itemValue)
           }>
           <Picker.Item label="13" value="13" />
           <Picker.Item label="14" value="14" />
@@ -199,10 +212,9 @@ const SignInScreen = ({ navigation }) => {
           <Text style={[styles.text_footer, { marginVertical: 50 }]}>Are you a child or parent?</Text>
         </Text>
         <Picker //Drop down menu and ask if their child or parent
-          //style={{ width: '100%' }}
-          selectedValue={selectedAccountType}
-          onValueChange={(itemValue, itemIndex) =>
-            setselectedAccountType(itemValue)
+          selectedValue={data.AccountType}
+          onValueChange={(itemValue) =>
+            HandleAccountTypeChange(itemValue)
           }>
           <Picker.Item label="Child" value="Child" />
           <Picker.Item label="Parent" value="Parent" />
@@ -210,18 +222,20 @@ const SignInScreen = ({ navigation }) => {
 
         <TouchableOpacity
           onPress={() => {
-            register(data.email, data.password);
             firestore()
               .collection('userInfo')
-              .doc("asdasdasdasda")
+              .doc()
               .set({
+                email: data.email,
+                password: data.password,
                 name: data.name,
                 age: data.age,
-                AccountType: data.selectedAccountType,
+                AccountType: data.AccountType,
               })
               .then(() => {
                 console.log('User added!');
               });
+            register(data.email, data.password);
           }
           }
           style={[styles.signIn, {

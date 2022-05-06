@@ -80,6 +80,7 @@ const AddSaving = ({ navigation }) => {
                         })
                         .then(() => {
                             console.log('Saving added!');
+                            alert('Saving added!');
                         });
                 }}
             >
