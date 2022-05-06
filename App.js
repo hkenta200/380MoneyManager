@@ -53,7 +53,6 @@ const App = () => {
   return (
     <AuthProvider>
       <NavigationContainer>
-        <Text>Welcome {auth().currentUser?.email}</Text>
         <RootStackScreen />
       </NavigationContainer>
     </AuthProvider>

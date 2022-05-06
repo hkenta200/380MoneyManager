@@ -1,26 +1,38 @@
 import { cloneNode } from "@babel/types";
 import { SlideFromRightIOS } from "@react-navigation/stack/lib/typescript/src/TransitionConfigs/TransitionPresets";
-import React, {useContext, useEffect} from "react";
+import React, { useContext, useEffect } from "react";
 import { View, Button, Text } from 'react-native';
 import { ImageBackground } from 'react-native';
 import { Image } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native';
-//import { TouchableOpacity } from "react-native-gesture-handler";
 import { TouchableOpacity } from "react-native";
 import { AuthContext } from '../Navigation/AuthProvider';
 import auth from '@react-native-firebase/auth';
 
+import SignUpScreen from "./ResetPassword";
+
 const Home = ({ navigation }) => {
 
-    const {logout} = useContext(AuthContext);
+    const { logout } = useContext(AuthContext);
+
+    React.useLayoutEffect(() => { //I tried adding the sign out button to the header
+        navigation.setOptions({
+            headerRight: () => (
+                /* <TouchableOpacity onPress={() => logout()}>
+                    <Text>Sign out</Text>
+                </TouchableOpacity> */
+                <Button title ='sasdasdasdd'/>
+            )
+        })
+    })
 
     return (
 
         <View style={{ flex: 1, backgroundColor: "white" }}>
 
-            <Text
-                style={{ fontWeight: "bold", fontSize: 20, marginTop: 10, marginBottom: 0, left: 10 }}
-            >Welcome to Leaf Wallet</Text>
+            {/* <Text
+                style={{ fontWeight: "bold", fontSize: 15, marginTop: 10, marginBottom: 0, left: 10 }}
+            >Welcome to Maple Money Manager</Text> */}
 
             <View
                 title="Hi, Ryan"
@@ -31,7 +43,7 @@ const Home = ({ navigation }) => {
                         title="Hi Address"
                         style={{ color: "#FFFFFF", fontSize: 20, fontWeight: "bold", marginLeft: 10, marginTop: 7 }}
                     >
-                        Hi, {auth().currentUser?.email} 
+                        Hi, {/* {SignUpScreen.age} */}{auth().currentUser?.email}
                     </Text>
                     <TouchableOpacity onPress={() => logout()}>
                         <Text>Sign out</Text>

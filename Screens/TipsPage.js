@@ -9,7 +9,7 @@ const Tips = () => {
             style = {{backgroundColor: "white"}}
         >
 
-            <View style = {{flex : 1, justifyContent: "center", alignContent: "center"}}>
+            <View style = {{flex : 1, justifyContent: "center", alignContent: "center", alignItems: "center"}}>
                 <Text
                     style={{fontSize: 30}}
                 >Helpful Tips</Text> 

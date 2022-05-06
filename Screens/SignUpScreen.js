@@ -21,6 +21,8 @@ import { Picker } from '@react-native-picker/picker';
 
 //import { useContext } from 'react/cjs/react.production.min';
 import { AuthContext } from '../Navigation/AuthProvider';
+import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
 
 //Status bar color fix: https://www.youtube.com/watch?v=Rs72pRwXIzA 23:32
 //Firebase Stuff: https://www.youtube.com/watch?v=J7pkSP18Oko
@@ -30,6 +32,7 @@ const SignInScreen = ({ navigation }) => {
   const [data, setData] = React.useState({
     email: '',
     password: '',
+    name: name,
     age: age,
     AccountType: selectedAccountType,
     check_TextInputChange: false,
@@ -67,13 +70,26 @@ const SignInScreen = ({ navigation }) => {
     })
   }
 
-  /* const updatePicker = () => {
+  const HandleNameChange = (val) => {
     setData({
       ...data,
+      name: val
+    });
+  }
 
+  /* firestore()
+    .collection('userInfo')
+    .doc(auth().currentUser?.email)
+    .set({
+      name: null,
+      age: null,
+      AccountType: null,
     })
-  } */
+    .then(() => {
+      console.log('User added!');
+    }); */
 
+  const [name, setName] = useState();
   const [selectedAccountType, setselectedAccountType] = useState();
   const [age, setAge] = useState();
 
@@ -138,31 +154,47 @@ const SignInScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
+        <Text style={styles.text_footer}>What is your name?(First name only)</Text>
+        <View style={styles.action}>
+          <TextInput
+            placeholder='Your First Name'
+            style={styles.textInput}
+            autoCapitalize='none'
+            onChangeText={(val) => setName(val)}
+          />
+        </View>
+
         <Text style={{
-          paddingVertical: 30
+          paddingVertical: 20
         }}>
           <Text style={[styles.text_footer, { marginTop: 50 }]}>What is your age?</Text>
 
         </Text>
-        <Picker //Drop down menu for their age
+        <Picker //Drop down menu for their age                  //https://www.youtube.com/watch?v=dAB_-mDR-Rs Maybe so that i dont have to add age manually
           //style={{ width: '100%' }}
           selectedValue={age}
           onValueChange={(itemValue, itemIndex) =>
             setAge(itemValue)
           }>
-          <Picker.Item label="13" value="Picker.Item.label" />
-          <Picker.Item label="14" value="Picker.Item.label" />
-          <Picker.Item label="15" value="Picker.Item.label" />
-          <Picker.Item label="16" value="Picker.Item.label" />
-          <Picker.Item label="17" value="Picker.Item.label" />
-          <Picker.Item label="18" value="Picker.Item.label" />
-          <Picker.Item label="19" value="Picker.Item.label" />
-          <Picker.Item label="20" value="Picker.Item.label" />
+          <Picker.Item label="13" value="13" />
+          <Picker.Item label="14" value="14" />
+          <Picker.Item label="15" value="15" />
+          <Picker.Item label="16" value="16" />
+          <Picker.Item label="17" value="17" />
+          <Picker.Item label="18" value="18" />
+          <Picker.Item label="19" value="19" />
+          <Picker.Item label="20" value="20" />
+          <Picker.Item label="35" value="35" />
+          <Picker.Item label="36" value="36" />
+          <Picker.Item label="37" value="37" />
+          <Picker.Item label="38" value="38" />
+          <Picker.Item label="39" value="39" />
+
         </Picker>
 
 
         <Text style={{
-          paddingVertical: 30
+          paddingVertical: 15
         }}>
           <Text style={[styles.text_footer, { marginVertical: 50 }]}>Are you a child or parent?</Text>
         </Text>
@@ -177,11 +209,24 @@ const SignInScreen = ({ navigation }) => {
         </Picker>
 
         <TouchableOpacity
-          onPress={() => register(data.email, data.password)}
+          onPress={() => {
+            register(data.email, data.password);
+            firestore()
+            .collection('userInfo')
+            .doc(auth().currentUser?.email)
+            .set({
+              name: null,
+              age: null,
+              AccountType: null,
+            })
+            .then(() => {
+              console.log('User added!');
+            });}
+          }
           style={[styles.signIn, {
             borderColor: '#009387',
             borderWidth: 1,
-            marginTop: 50
+            marginTop: 30
           }]}
         >
           <Text style={styles.textSign}>Sign Up</Text>

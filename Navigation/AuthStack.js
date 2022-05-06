@@ -10,13 +10,13 @@ import SignUpScreen from '../Screens/SignUpScreen';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const RootStack = createNativeStackNavigator();
-const AuthStack = () => {
+const AuthStack = () => { //This page is used when there is no user currently logged in.
     return (
         <RootStack.Navigator>
             <RootStack.Screen name="SplashScreen" component={SplashScreen} options={{headerShown:false}}/>
-            <RootStack.Screen name="SignInScreen" component={SignInScreen} />
-            <RootStack.Screen name="ResetPassword" component={ResetPassword} />
-            <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
+            <RootStack.Screen name="SignInScreen" component={SignInScreen} options={{headerShown:false}}/>
+            <RootStack.Screen name="ResetPassword" component={ResetPassword} options={{headerShown:false}}/>
+            <RootStack.Screen name="SignUpScreen" component={SignUpScreen} options={{headerShown:false}}/>
 
         </RootStack.Navigator>
     )

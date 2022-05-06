@@ -1,4 +1,5 @@
 import React, {useEffect, useContext, useState} from 'react';
+import { ScrollView } from "react-native" 
 
 import {
   View,
@@ -197,6 +198,8 @@ const styles = StyleSheet.create({
   },
   text_header: {
     color: '#fff',
+    alignItems: 'center',
+    alignContent: 'center',
     fontWeight: 'bold',
     fontSize: 30
   },

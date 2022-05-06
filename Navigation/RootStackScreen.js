@@ -121,7 +121,7 @@ const RootStackScreen = () => {
             <RootStack.Screen name="SignInScreen" component={SignInScreen} />
             <RootStack.Screen name="ResetPassword" component={ResetPassword} />
             <RootStack.Screen name="SignUpScreen" component={SignUpScreen} /> */}
-            <RootStack.Screen name="Home" component={Tabbing} options={{headerShown:false}}/>
+            <RootStack.Screen name="Home" component={Tabbing} options={{title:'Welcome to MMM', headerTitleAlign: 'center'}}/>
             <RootStack.Screen name="IncomePage" component={IncomePage} />
             <RootStack.Screen name="SpendingPage" component={SpendingPage} />
             <RootStack.Screen name="SavingPage" component={SavingPage} />
