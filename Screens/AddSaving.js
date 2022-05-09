@@ -71,7 +71,7 @@ const AddSaving = ({ navigation }) => {
                 onPress={() => {
                     firestore()
                         .collection('savingInfo')
-                        .doc("asdasdasdasda")
+                        .doc()
                         .set({
                             name: savingName,
                             amount: savingAmt,

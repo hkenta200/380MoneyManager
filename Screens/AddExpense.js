@@ -70,7 +70,7 @@ const AddSpending = ({ navigation }) => {
                 onPress={() => {
                     firestore()
                         .collection('expenseInfo')
-                        .doc("d")
+                        .doc()
                         .set({
                             name: expenseName,
                             amount: expenseAmt,
