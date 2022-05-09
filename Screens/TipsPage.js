@@ -9,9 +9,9 @@ const Tips = () => {
             style = {{backgroundColor: "white"}}
         >
 
-            <View style = {{flex : 1, justifyContent: "center", alignContent: "center", alignItems: "center"}}>
+            <View style = {{flex : 1, justifyContent: "center", alignContent: "center", backgroundColor: "#8800C7", width: 270, right: 14, borderRadius: 30}}>
                 <Text
-                    style={{fontSize: 30}}
+                    style={{fontSize: 30, color: "white", alignSelf: "center"}}
                 >Helpful Tips</Text> 
 
             </View>
@@ -23,7 +23,9 @@ const Tips = () => {
             >
                 <Text
                     style={{fontSize: 25, color: "white"}}
-                >Why Save? {"\n"} {"\n"}
+                >Why Save? {"\n"} 
+                -------------------------------------------------
+                {"\n"}
                 
                 <Text
                     style={{fontSize: 17, color: "white", fontFamily : 'Roboto'}}
@@ -42,7 +44,19 @@ const Tips = () => {
             >
                 <Text
                     style={{fontSize: 25, color: "black"}}
-                >Set a New Goal!</Text>
+                >Set a New Goal!{"\n"} 
+                -------------------------------------------------
+                {"\n"}
+                
+                <Text
+                    style={{fontSize: 17, color: "black", fontFamily : 'Roboto'}}
+                >
+                    Choose an amount you want to save in a set period of time, and
+                    start saving! Setting a new goal is an essential part of financial 
+                    planning and can help you see your future more clearly
+                </Text>
+                
+                </Text>
             </View>
 
             <View
@@ -51,7 +65,21 @@ const Tips = () => {
             >
                 <Text
                     style={{fontSize: 25, color: "white"}}
-                >Create a Budget</Text>
+                >Create a Budget{"\n"} 
+                -------------------------------------------------
+                {"\n"}
+                
+                <Text
+                    style={{fontSize: 16, color: "white", fontFamily : 'Roboto'}}
+                >
+                    When creating a budget, it is best to follow the fundmental 50-30-20 rule
+                    That is, 50% of your money should go to your needs, 30% to your wants,
+                    and 20% into savings or investments. Of course you can be flexible with these
+                    numbers, though it is best to consider your needs above all else, and consider  
+                    savings as the alterantive priority
+                </Text>
+                
+                </Text>
             </View>
 
             <View
@@ -59,8 +87,20 @@ const Tips = () => {
             style = {{backgroundColor : "#A4DE02", fontSize : 40, width : 360, height : 250, color:"#FFFFFF", borderRadius : 30, alignSelf : "center", alignContent : "center", textAlignVertical: "center", padding : 10, fontWeight : "bold", marginTop : 8, flexDirection : "row", flex : 1}}
             >
                 <Text
-                    style={{fontSize: 25, color: "white"}}
-                >How Much Can I Afford?</Text>
+                    style={{fontSize: 25, color: "black"}}
+                >How Much Can I Afford?{"\n"} 
+                -------------------------------------------------
+                {"\n"}
+                
+                <Text
+                    style={{fontSize: 16, color: "black", fontFamily : 'Roboto'}}
+                >
+                    Considering how much you can afford is left to you and what you are willing 
+                    to take on.  It is important to consider your income to spending proportion 
+                    so that you don't overspend on your allowances.  
+                </Text>
+                
+                </Text>
             </View>
 
         </ScrollView>
