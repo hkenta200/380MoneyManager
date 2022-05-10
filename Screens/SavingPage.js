@@ -1,17 +1,50 @@
 import { faPiggyBank } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import { View, Button, Text, Dimensions } from 'react-native';
+import { View, Button, Text, Dimensions, FlatList } from 'react-native';
 import { BarChart } from "react-native-chart-kit";
 
+import { useState, useEffect } from "react";
+import { ActivityIndicator } from 'react-native';
+import firestore from '@react-native-firebase/firestore';
 
 
 const SavingPage = () => {
+
+        const [loading, setLoading] = useState(true); // Set loading to true on component mount
+        const [users, setUsers] = useState([]); // Initial empty array of users
+
+        useEffect(() => {
+            const subscriber = firestore()
+            .collection('savingInfo')
+            .onSnapshot(querySnapshot => {
+            const users = [];
+
+
+            querySnapshot.forEach(documentSnapshot => {
+                users.push({
+                ...documentSnapshot.data(),
+                key: documentSnapshot.id,
+                });
+            });
+
+            setUsers(users);
+            setLoading(false);
+            });
+
+        // Unsubscribe from events when no longer in use
+        return () => subscriber();
+        }, []);
+
+        if (loading) {
+            return <ActivityIndicator />;
+        }
+        //-----------------------------
 
 
     return (
 
         <View>
-            <Text style={{ alignContent: "center", alignItems: "center", fontWeight: "bold", fontSize: 30, marginTop: 10, marginBottom: 0, left: 10, marginLeft: 110, marginRight: 98, borderRadius: 50 }}>Savings</Text>
+            <Text style={{ alignContent: "center", alignItems: "center", fontWeight: "bold", fontSize: 20, marginTop: 10, marginBottom: 0, left: 10, borderRadius: 50 }}>Savings Summary</Text>
 
             <BarChart
                 data={{
@@ -25,7 +58,7 @@ const SavingPage = () => {
                     ]
                 }}
                 width={Dimensions.get("window").width} // from react-native
-                height={500}
+                height={300}
                 yAxisLabel="$"
                 yAxisSuffix="k"
                 yAxisInterval={1} // optional, defaults to 1
@@ -48,9 +81,21 @@ const SavingPage = () => {
                 bezier
                 style={{
                     marginVertical: 8,
-                    borderRadius: 16
+                    borderRadius: 16,
                 }}
             />
+
+                <Text style={{ alignContent: "center", alignItems: "center", fontWeight: "bold", fontSize: 20, marginTop: 10, marginBottom: 0, left: 10, borderRadius: 50 }}>Savings List</Text>
+
+                <FlatList
+                data={users}
+                renderItem={({ item }) => (
+                    <View style={{ height: 50, flex: 1, alignItems: 'center', justifyContent: 'center', borderBottomWidth: 3, borderBottomColor: "#a95aec", marginRight: 20, marginLeft: 20}}>
+                    <Text>Name: {item.name}    Amount: {item.Amount}</Text>
+                    <Text>Category: {item.Category}</Text>
+                    </View>
+                )}
+                />
 
         </View>
     );

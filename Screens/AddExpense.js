@@ -81,6 +81,8 @@ const AddSpending = ({ navigation }) => {
                             console.log('Expense added!');
                             alert('Expense added!');
                         });
+
+                        navigation.navigate('SpendingPage');
                 }}
             >
                 <Text>Add</Text>

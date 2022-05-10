@@ -1,9 +1,55 @@
 
-import React, { useState } from "react";
-import { View, Button, Text, Dimensions, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from "react";
+import { View, Button, Text, Dimensions, StyleSheet, FlatList } from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import { BarChart } from "react-native-chart-kit";
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
+
+import { ActivityIndicator } from 'react-native';
+//import firestore from '@react-native-firebase/firestore';
+
+/*function Users() {
+  const [loading, setLoading] = useState(true); // Set loading to true on component mount
+  const [users, setUsers] = useState([]); // Initial empty array of users
+
+  useEffect(() => {
+    const subscriber = firestore()
+    .collection('expenseInfo')
+    .onSnapshot(querySnapshot => {
+      const users = [];
+
+      querySnapshot.forEach(documentSnapshot => {
+        users.push({
+          ...documentSnapshot.data(),
+          key: documentSnapshot.id,
+        });
+      });
+
+      setUsers(users);
+      setLoading(false);
+    });
+
+  // Unsubscribe from events when no longer in use
+  return () => subscriber();
+  }, []);
+
+  if (loading) {
+    return <ActivityIndicator />;
+  }
+
+  return (
+    <FlatList
+      data={users}
+      renderItem={({ item }) => (
+        <View style={{ height: 50, flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text>User ID: {item.amount}</Text>
+          <Text>User Name: {item.category}</Text>
+        </View>
+      )}
+    />
+  );
+
+}*/
 
 /*const expenseName = firestore().collection('expenseInfo').doc('d').get();
 const expenseCost = firestore().collection('savingsInfo').doc('d').get();
@@ -42,16 +88,52 @@ const data = [expenseName, expenseCost];*/
     text: { margin: 6 }
   });*/
 
+  import {snapshot} from "@react-native-firebase/firestore";
+
 const SpendingPage = () => {
+
+  const [loading, setLoading] = useState(true); // Set loading to true on component mount
+  const [users, setUsers] = useState([]); // Initial empty array of users
+
+  useEffect(() => {
+    const subscriber = firestore()
+    .collection('expenseInfo')
+    .onSnapshot(querySnapshot => {
+      const users = [];
+
+
+      querySnapshot.forEach(documentSnapshot => {
+        users.push({
+          ...documentSnapshot.data(),
+          key: documentSnapshot.id,
+        });
+      });
+
+      setUsers(users);
+      setLoading(false);
+    });
+
+  // Unsubscribe from events when no longer in use
+  return () => subscriber();
+  }, []);
+
+  if (loading) {
+    return <ActivityIndicator />;
+  }
+//-----------------------------
+
+
     return (
 
-
+      <View
+        style={{backgroundColor:"white"}}
+      >
         <View >
             <Text style={{
-                alignContent: "center", alignItems: "center", fontWeight: "bold", fontSize: 30,
-                marginTop: 10, marginBottom: 0, left: 10, marginLeft: 110, marginRight: 98, borderRadius: 50
+                alignContent: "center", alignItems: "center", fontWeight: "bold", fontSize: 20,
+                marginTop: 10, marginBottom: 0, left: 10, borderRadius: 50, backgroundColor: "white"
             }}>
-                Spending View Visual+List</Text>
+                Spending Summary</Text>
 
             <BarChart
                 data={{
@@ -65,7 +147,7 @@ const SpendingPage = () => {
                     ]
                 }}
                 width={Dimensions.get("window").width} // from react-native
-                height={220}
+                height={300}
                 fromZero
 
                 yAxisLabel="$"
@@ -94,7 +176,21 @@ const SpendingPage = () => {
             />
         </View>
 
+        <Text
+                style={{ fontWeight: "bold", fontSize: 20, marginTop: 10, marginBottom: 0, left: 10 }}
+            >Spending List</Text>
 
+        <FlatList
+      data={users}
+      renderItem={({ item }) => (
+        <View style={{ height: 50, flex: 1, alignItems: 'center', justifyContent: 'center', borderBottomWidth: 3, borderBottomColor: "#a95aec", marginRight: 20, marginLeft: 20}}>
+          <Text>Name: {item.name}    Amount: {item.Amount}</Text>
+          <Text>Category: {item.Category}</Text>
+        </View>
+      )}
+    />
+                
+    </View>
 
 
     );

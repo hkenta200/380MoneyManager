@@ -58,6 +58,7 @@ const AddSaving = ({ navigation }) => {
                 style={{ fontSize: 20, fontWeight: "bold", color: "#8800C7", left: 5 }}
             >Other Info</Text>
             <TextInput
+                title="txt"
                 style={{ marginBottom: 40 }}
                 value={Text}
                 onChangeText={text=>setSavingAdditionalInfo(text)}
@@ -82,6 +83,8 @@ const AddSaving = ({ navigation }) => {
                             console.log('Saving added!');
                             alert('Saving added!');
                         });
+
+                        navigation.navigate('SavingPage');
                 }}
             >
                 <Text>Add</Text>
