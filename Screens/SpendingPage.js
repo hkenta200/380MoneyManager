@@ -88,7 +88,7 @@ const data = [expenseName, expenseCost];*/
     text: { margin: 6 }
   });*/
 
-  import {snapshot} from "@react-native-firebase/firestore";
+import { snapshot } from "@react-native-firebase/firestore";
 
 const SpendingPage = () => {
 
@@ -97,103 +97,104 @@ const SpendingPage = () => {
 
   useEffect(() => {
     const subscriber = firestore()
-    .collection('expenseInfo')
-    .onSnapshot(querySnapshot => {
-      const users = [];
+      .collection('expenseInfo')
+      .orderBy("name", "desc")
+      .onSnapshot(querySnapshot => {
+        const users = [];
 
 
-      querySnapshot.forEach(documentSnapshot => {
-        users.push({
-          ...documentSnapshot.data(),
-          key: documentSnapshot.id,
+        querySnapshot.forEach(documentSnapshot => {
+          users.push({
+            ...documentSnapshot.data(),
+            key: documentSnapshot.id,
+          });
         });
+
+        setUsers(users);
+        setLoading(false);
       });
 
-      setUsers(users);
-      setLoading(false);
-    });
-
-  // Unsubscribe from events when no longer in use
-  return () => subscriber();
+    // Unsubscribe from events when no longer in use
+    return () => subscriber();
   }, []);
 
   if (loading) {
     return <ActivityIndicator />;
   }
-//-----------------------------
+  //-----------------------------
 
 
-    return (
+  return (
 
-      <View
-        style={{backgroundColor:"white"}}
-      >
-        <View >
-            <Text style={{
-                alignContent: "center", alignItems: "center", fontWeight: "bold", fontSize: 20,
-                marginTop: 10, marginBottom: 0, left: 10, borderRadius: 50, backgroundColor: "white"
-            }}>
-                Spending Summary</Text>
+    <View
+      style={{ backgroundColor: "white" }}
+    >
+      <View >
+        <Text style={{
+          alignContent: "center", alignItems: "center", fontWeight: "bold", fontSize: 20,
+          marginTop: 10, marginBottom: 0, left: 10, borderRadius: 50, backgroundColor: "white"
+        }}>
+          Spending Summary</Text>
 
-            <BarChart
-                data={{
-                    labels: ["Food", "Entertainment", "Transportation", "Shopping"],
-                    datasets: [
-                        {
-                            data: [
-                                200, 300, 100, 150
-                            ]
-                        }
-                    ]
-                }}
-                width={Dimensions.get("window").width} // from react-native
-                height={300}
-                fromZero
+        <BarChart
+          data={{
+            labels: ["Food", "Entertainment", "Transportation", "Shopping"],
+            datasets: [
+              {
+                data: [
+                  200, 300, 100, 150
+                ]
+              }
+            ]
+          }}
+          width={Dimensions.get("window").width} // from react-native
+          height={300}
+          fromZero
 
-                yAxisLabel="$"
-                yAxisInterval={1} // optional, defaults to 1
-                chartConfig={{
-                    backgroundColor: "#a95aec",
-                    backgroundGradientFrom: "#a95aec",
-                    backgroundGradientTo: "#a95aec",
-                    decimalPlaces: 2, // optional, defaults to 2dp
-                    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                    labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                    style: {
-                        borderRadius: 16
-                    },
-                    propsForDots: {
-                        r: "6",
-                        strokeWidth: "2",
-                        stroke: "#ffa726"
-                    }
-                }}
-                bezier
-                style={{
-                    marginVertical: 8,
-                    borderRadius: 16
-                }}
-            />
-        </View>
+          yAxisLabel="$"
+          yAxisInterval={1} // optional, defaults to 1
+          chartConfig={{
+            backgroundColor: "#a95aec",
+            backgroundGradientFrom: "#a95aec",
+            backgroundGradientTo: "#a95aec",
+            decimalPlaces: 2, // optional, defaults to 2dp
+            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+            labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+            style: {
+              borderRadius: 16
+            },
+            propsForDots: {
+              r: "6",
+              strokeWidth: "2",
+              stroke: "#ffa726"
+            }
+          }}
+          bezier
+          style={{
+            marginVertical: 8,
+            borderRadius: 16
+          }}
+        />
+      </View>
 
-        <Text
-                style={{ fontWeight: "bold", fontSize: 20, marginTop: 10, marginBottom: 0, left: 10 }}
-            >Spending List</Text>
+      <Text
+        style={{ fontWeight: "bold", fontSize: 20, marginTop: 10, marginBottom: 0, left: 10 }}
+      >Spending List</Text>
 
-        <FlatList
-      data={users}
-      renderItem={({ item }) => (
-        <View style={{ height: 50, flex: 1, alignItems: 'center', justifyContent: 'center', borderBottomWidth: 3, borderBottomColor: "#a95aec", marginRight: 20, marginLeft: 20}}>
-          <Text>Name: {item.name}    Amount: {item.Amount}</Text>
-          <Text>Category: {item.Category}</Text>
-        </View>
-      )}
-    />
-                
+      <FlatList
+        data={users}
+        renderItem={({ item }) => (
+          <View style={{ height: 50, flex: 1, alignItems: 'center', justifyContent: 'center', borderBottomWidth: 3, borderBottomColor: "#a95aec", marginRight: 20, marginLeft: 20 }}>
+            <Text>Name: {item.name}    Amount: {item.Amount}</Text>
+            <Text>Category: {item.Category}</Text>
+          </View>
+        )}
+      />
+
     </View>
 
 
-    );
+  );
 
 
 };

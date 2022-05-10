@@ -1,5 +1,5 @@
-import React, {useEffect, useContext, useState} from 'react';
-import { ScrollView } from "react-native" 
+import React, { useEffect, useContext, useState } from 'react';
+import { ScrollView } from "react-native"
 
 import {
   View,
@@ -64,7 +64,7 @@ const SignInScreen = ({ navigation }) => {
     })
   }
 
-  const {login} = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   /* useEffect(() => {
     const unsubscribe = auth().onAuthStateChanged(user => {
@@ -148,7 +148,7 @@ const SignInScreen = ({ navigation }) => {
         <TouchableOpacity
           //onPress={handleLogin}
           onPress={() => login(data.email, data.password)}
-          //onPress={() => navigation.navigate("Home")}
+        //onPress={() => navigation.navigate("Home")}
         >
           <View style={styles.button}>
             <LinearGradient

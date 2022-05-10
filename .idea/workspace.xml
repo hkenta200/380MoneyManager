@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de7e8e7e-595a-4871-b639-125e3a989adb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Screens/AddExpense.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/AddExpense.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Screens/AddSaving.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/AddSaving.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Screens/SignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/SignUpScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.bash_history" beforeDir="false" afterPath="$PROJECT_DIR$/.bash_history" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/SavingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/SavingPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/7.3.3/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.3.3/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/7.3.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.3.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />

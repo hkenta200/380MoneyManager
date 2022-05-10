@@ -75,7 +75,7 @@ const AddSaving = ({ navigation }) => {
                         .doc()
                         .set({
                             name: savingName,
-                            amount: savingAmt,
+                            amount: "$" + savingAmt,
                             category: savingCategory,
                             info: savingAdditionalInfo,
                         })
@@ -84,7 +84,7 @@ const AddSaving = ({ navigation }) => {
                             alert('Saving added!');
                         });
 
-                        navigation.navigate('SavingPage');
+                        navigation.navigate('Home');
                 }}
             >
                 <Text>Add</Text>

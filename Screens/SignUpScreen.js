@@ -18,8 +18,6 @@ import LinearGradient from 'react-native-linear-gradient';
 import { NavigationContainer } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
 
-
-//import { useContext } from 'react/cjs/react.production.min';
 import { AuthContext } from '../Navigation/AuthProvider';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
@@ -27,7 +25,7 @@ import firestore from '@react-native-firebase/firestore';
 //Status bar color fix: https://www.youtube.com/watch?v=Rs72pRwXIzA 23:32
 //Firebase Stuff: https://www.youtube.com/watch?v=J7pkSP18Oko
 
-const SignInScreen = ({ navigation }) => {
+const SignUpScreen = ({ navigation }) => {
 
   const [data, setData] = React.useState({
     email: '',
@@ -255,7 +253,7 @@ const SignInScreen = ({ navigation }) => {
   )
 }
 
-export default SignInScreen;
+export default SignUpScreen;
 
 const styles = StyleSheet.create({
   container: {

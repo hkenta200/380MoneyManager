@@ -15,3 +15,9 @@ git add --all
 cd "D:\Users\kzhou_000\AndroidStudioProjects\groceryrunv1"
 git init
 git add --all
+git add --all
+git commit --all -m "Some Visuals Added"
+git push'
+git push
+git pull
+git pull
