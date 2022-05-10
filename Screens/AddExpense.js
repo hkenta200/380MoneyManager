@@ -73,8 +73,8 @@ const AddSpending = ({ navigation }) => {
                         .doc()
                         .set({
                             name: expenseName,
-                            amount: "$" + expenseAmt,
-                            category: expenseCategory,
+                            Amount: "$" + expenseAmt,
+                            Category: expenseCategory,
                             info: expenseAdditionalInfo,
                         })
                         .then(() => {

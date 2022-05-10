@@ -75,8 +75,8 @@ const AddSaving = ({ navigation }) => {
                         .doc()
                         .set({
                             name: savingName,
-                            amount: "$" + savingAmt,
-                            category: savingCategory,
+                            Amount: "$" + savingAmt,
+                            Category: savingCategory,
                             info: savingAdditionalInfo,
                         })
                         .then(() => {

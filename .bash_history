@@ -21,3 +21,6 @@ git push'
 git push
 git pull
 git pull
+git add --all
+git commit --all -m "Firestore Sort"
+git push
