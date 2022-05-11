@@ -12,7 +12,7 @@ const AddSpending = ({ navigation }) => {
     const [expenseAdditionalInfo, setExpenseAdditionalInfo] = useState(null);
 
     return (
-        <View style={{ flex: 1, justifyContent: "center", alignContent: "center", backgroundColor: "white", marginBottom: 40 }}>
+        <View style={{ flex: 1, justifyContent: "center", alignContent: "center", backgroundColor: "white", marginBottom: 80 }}>
 
             <View
                 style={{ alignSelf: "center", fontSize: 40, marginBottom: 50, backgroundColor: "#8800C7", width: 400, height: 130, alignItems: "center", borderBottomEndRadius: 25, borderBottomLeftRadius: 25 }}
@@ -82,7 +82,7 @@ const AddSpending = ({ navigation }) => {
                             alert('Expense added!');
                         });
 
-                    navigation.navigate('SpendingPage');
+                    navigation.navigate('Home');
                 }}
             >
                 <Text>Add</Text>

@@ -34,52 +34,54 @@ const Home = ({ navigation }) => {
                 style={{ fontWeight: "bold", fontSize: 15, marginTop: 10, marginBottom: 0, left: 10 }}
             >Welcome to Maple Money Manager</Text> */}
 
-            <View
+<View
                 title="Hi, Ryan"
                 style={{ backgroundColor: "#8800C7", fontSize: 40, width: 360, height: 250, color: "#FFFFFF", borderRadius: 40, alignSelf: "center", alignContent: "center", textAlignVertical: "center", padding: 10, fontWeight: "bold", marginTop: 8, flexDirection: "row", flex: 1 }}
             >
                 <Text>
                     <Text
                         title="Hi Address"
-                        style={{ color: "#FFFFFF", fontSize: 20, fontWeight: "bold", marginLeft: 10, marginTop: 7 }}
+                        style={{ color: "#FFFFFF", fontSize: 30, fontWeight: "bold", marginLeft: 10, marginTop: 7 }}
                     >
-                        Hi, {/* {SignUpScreen.age} */}{auth().currentUser?.email}
+                        {"\n"}
+                        Hi! {/* {SignUpScreen.age} */}{auth().currentUser?.email}{}  
                     </Text>
                     <TouchableOpacity onPress={() => logout()}>
-                        <Text>Sign out</Text>
+                        <Text style={{color:"red", borderColor: "red", borderWidth: 1}}>Sign out</Text>
                     </TouchableOpacity>
                 </Text>
-
-
-
+ 
+ 
+ 
                 <View
                     title="inner"
-                    style={{ backgroundColor: "#4c00ac", width: 150, height: 120, borderRadius: 20, alignSelf: "center", textAlign: "center", right: 160, marginTop: 70, color: "#FFFFFF", fontSize: 18, fontFamily: "Times", justifyContent: "flex-start", alignContent: "center" }}
+                    style={{ backgroundColor: "#4c00ac", left: -310, width: 150, height: 120, borderRadius: 20, alignSelf: "center", textAlign: "center", right: 160, marginTop: 70, color: "#FFFFFF", fontSize: 18, fontFamily: "Times", justifyContent: "flex-start", alignContent: "center" }}
                 >
                     <Text
                         style={{ color: '#FFFFFF', fontWeight: "bold", alignSelf: "center", textAlignVertical: "center", fontSize: 18, flex: 1 }}
                     >Spending {'\n'} $100
                     </Text>
                     <Image
-                        style={{ width: 20, height: 20, transform: [{ scaleX: -1 }, { scaleY: -1 }], alignSelf: "center" }}
+                        style={{ width: 20, height: 20, marginBottom: 20, transform: [{ scaleX: -1 }, { scaleY: -1 }], alignSelf: "center" }}
                         source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Red_Arrow_Up.svg/2048px-Red_Arrow_Up.svg.png' }}
                     />
                 </View>
-
+ 
                 <View
                     title="inner2"
-                    style={{ backgroundColor: "#4c00ac", width: 150, height: 120, borderRadius: 20, alignSelf: "center", textAlign: "center", right: 140, marginTop: 70, color: "#FFFFFF", fontSize: 18, fontFamily: "Times", justifyContent: "flex-end", alignContent: "center" }}
+                    style={{ backgroundColor: "#4c00ac", left: -290, width: 150, height: 120, borderRadius: 20, alignSelf: "center", textAlign: "center", right: 140, marginTop: 70, color: "#FFFFFF", fontSize: 18, fontFamily: "Times", justifyContent: "flex-end", alignContent: "center" }}
                 >
                     <Text
                         style={{ color: '#FFFFFF', fontWeight: "bold", alignSelf: "center", textAlignVertical: "center", fontSize: 18, flex: 1 }}
                     >Saving {'\n'} $400
                     </Text>
                     <Image
-                        style={{ width: 20, height: 20, alignSelf: "center" }}
+                        style={{ width: 20, height: 20, marginBottom: 20, alignSelf: "center" }}
                         source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Dark_Green_Arrow_Up.svg/800px-Dark_Green_Arrow_Up.svg.png' }}
                     />
                 </View>
             </View>
+
 
             <Text
                 title="Options"

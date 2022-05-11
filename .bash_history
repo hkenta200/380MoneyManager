@@ -24,3 +24,6 @@ git pull
 git add --all
 git commit --all -m "Firestore Sort"
 git push
+git add --all
+git commit --all -m "Fixed Flatlist Values"
+git push

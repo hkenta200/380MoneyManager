@@ -21,6 +21,9 @@ export const AuthProvider = ({ children }) => {
                         }
                     }
                     catch (e) {
+                        if(email.trim() == "" || email.trim() == ""){
+                            alert('Email or Password cannot be empty! Please try again.');
+                        }
                         console.log(e);
                     }
                 },
