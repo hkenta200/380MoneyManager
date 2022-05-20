@@ -13,20 +13,20 @@ const Income = () => {
 
             <BarChart
                 data={{
-                    labels: ["Car", "House", "School", "Clothes", "Games", "Fun"],
+                    labels: ["Allowance", "Job", "Gifts", "Source 4"],
                     datasets: [
                         {
                             data: [
-                                450, 550, 500, 450, 550, 450
+                                22, 48, 10, 25
                             ]
                         }
                     ]
                 }}
                 width={Dimensions.get("window").width} // from react-native
-                height={500}
+                height={Dimensions.get("window").height}
                 yAxisLabel="$"
 
-                yAxisSuffix="k"
+                //yAxisSuffix="k"
                 yAxisInterval={1} // optional, defaults to 1
                 chartConfig={{
                     backgroundColor: "#a95aec",

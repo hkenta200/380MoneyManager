@@ -81,7 +81,10 @@ const AddSaving = ({ navigation }) => {
                             info: savingAdditionalInfo,
                         })
                         .then(() => {
-                            
+                            savingName.clear();
+                            savingAmt.clear();
+                            savingCategory.clear();
+                            savingAdditionalInfo.clear();
                             console.log('Saving added!');
                             alert('Saving added!');
                         });

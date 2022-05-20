@@ -6,10 +6,66 @@ import firestore from '@react-native-firebase/firestore';
 
 const AddSpending = ({ navigation }) => {
 
-    const [expenseName, setExpenseName] = useState();
+    const [expenseName, setExpenseName] = useState(null);
     const [expenseAmt, setExpenseAmt] = useState();
-    const [expenseCategory, setExpenseCategory] = useState();
+    const [expenseCategory, setExpenseCategory] = useState(null);
     const [expenseAdditionalInfo, setExpenseAdditionalInfo] = useState(null);
+
+    const handleEmptyFields = () => {
+        if (setExpenseAmt != '') {
+            firestore()
+                .collection('expenseInfo')
+                .doc()
+                .set({
+                    name: expenseName,
+                    Amount: "$" + expenseAmt,
+                    Category: expenseCategory,
+                    info: expenseAdditionalInfo,
+                })
+                .then(() => {
+                    console.log('Expense added!');
+                    alert('Expense added!');
+                });
+        }
+        else if (setExpenseAmt = "") {
+            alert("Amount should not be empty! Please try again");
+            
+        }
+        else if (setExpenseAmt.length > 5){
+            alert("Are you sure you entered the correct amount?");
+        }
+    }
+
+    /* const handleAmountChange = (val) => {
+        if (val != '')  {
+            setExpenseAmt({
+                expenseAmt: val
+            });
+        }
+        else if (val = '') {
+            alert("Amount should not be empty! Please try again");
+            
+        }
+        else if(val.length > 5){
+            alert("Are you sure you entered the correct amount?");
+        }
+    } */
+
+    /* const handleAmountChange = (val) => {
+        let newText = '';
+        let numbers = '0123456789';
+
+        for (var i = 0; i < text.length; i++) {
+            if (numbers.indexOf(text[i]) > -1) {
+                newText = newText + text[i];
+            }
+            else {
+                // your call back function
+                alert("please enter numbers only");
+            }
+        }
+        this.setState({ myNumber: newText });
+    } */
 
     return (
         <View style={{ flex: 1, justifyContent: "center", alignContent: "center", backgroundColor: "white", marginBottom: 80 }}>
@@ -68,7 +124,7 @@ const AddSpending = ({ navigation }) => {
                 color={"#8800C7"}
                 style={{ innerWidth: 100, innerHeight: 50, marginBottom: 10 }}
                 onPress={() => {
-                    firestore()
+                    /* firestore()
                         .collection('expenseInfo')
                         .doc()
                         .set({
@@ -80,7 +136,9 @@ const AddSpending = ({ navigation }) => {
                         .then(() => {
                             console.log('Expense added!');
                             alert('Expense added!');
-                        });
+                        }); */
+
+                        handleEmptyFields();
 
                     navigation.navigate('Home');
                 }}

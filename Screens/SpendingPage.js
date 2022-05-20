@@ -181,12 +181,13 @@ const SpendingPage = () => {
         style={{ fontWeight: "bold", fontSize: 20, marginTop: 10, marginBottom: 0, left: 10 }}
       >Spending List</Text>
 
-      <FlatList
+      <FlatList //This part usually shows the history of the list. It's hidden for now to prevent firestore reads since we're on a free account
         data={users}
         renderItem={({ item }) => (
           <View style={{ height: 50, flex: 1, alignItems: 'center', justifyContent: 'center', borderBottomWidth: 3, borderBottomColor: "#a95aec", marginRight: 20, marginLeft: 20 }}>
             <Text>Name: {item.name}    Amount: {item.Amount}</Text>
-            <Text>Category: {item.Category}</Text>
+            <Text>Category: {item.Category}    Additional Info: {item.info}</Text>
+
           </View>
         )}
       />

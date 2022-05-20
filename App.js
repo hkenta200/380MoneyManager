@@ -1,4 +1,4 @@
-//import React from 'react';
+// Contributing Members up until this point: Kevin, Harrown, Dario, Aalyiah, Nickolas, Jason
 import React, { useState, useEffect, useContext } from 'react';
 
 import {

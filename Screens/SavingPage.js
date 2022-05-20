@@ -11,7 +11,7 @@ import auth from '@react-native-firebase/auth';
 
 const SavingPage = () => {
 
-    const [loading, setLoading] = useState(true); // Set loading to true on component mount
+    /* const [loading, setLoading] = useState(true); // Set loading to true on component mount
     const [users, setUsers] = useState([]); // Initial empty array of users
 
     useEffect(() => {
@@ -40,7 +40,7 @@ const SavingPage = () => {
 
     if (loading) {
         return <ActivityIndicator />;
-    }
+    } */
     //-----------------------------
 
 
@@ -90,15 +90,15 @@ const SavingPage = () => {
 
             <Text style={{ alignContent: "center", alignItems: "center", fontWeight: "bold", fontSize: 20, marginTop: 10, marginBottom: 0, left: 10, borderRadius: 50 }}>Savings List</Text>
 
-            <FlatList
+            {/* <FlatList //This part usually shows the history of the list. It's hidden for now to prevent firestore reads since we're on a free account
                 data={users}
                 renderItem={({ item }) => (
                     <View style={{ height: 50, flex: 1, alignItems: 'center', justifyContent: 'center', borderBottomWidth: 3, borderBottomColor: "#a95aec", marginRight: 20, marginLeft: 20 }}>
                         <Text>Name: {item.name}    Amount: {item.Amount}</Text>
-                        <Text>Category: {item.Category}</Text>
+                        <Text>Category: {item.Category}    Additional Info: {item.info}</Text>
                     </View>
                 )}
-            />
+            /> */}
 
         </View>
     );

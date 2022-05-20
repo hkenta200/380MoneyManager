@@ -45,7 +45,9 @@ export const AuthProvider = ({ children }) => {
                         if (error.code === 'auth/invalid-email') {
                             console.log('That email address is invalid!');
                         } */
-
+                        if(email.trim() == "" || email.trim() == ""){
+                            alert('Email or Password cannot be empty! Please try again.');
+                        }
                         console.log(e);
                     }
                 },
